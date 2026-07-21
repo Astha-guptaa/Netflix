@@ -18,6 +18,5 @@ Configured tailwind css
          - Movie suggestions
             - Movies List * N
   - Netflix GPT
-    - 
-    - 
-    - 
+    - Search Bar
+    - Movie Suggestions

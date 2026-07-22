@@ -2,6 +2,20 @@
 
 create-react-app 
 Configured tailwind css
+Header
+Routing of App
+Login form
+SignUp form
+Form Validation
+useRef hook
+firebase setup
+deploying our app to producion
+create sign up user account
+implement sign in user api
+created our redux store with userSlice
+implemented sign out
+update profile
+fetch movies from TMDB
 
 
 

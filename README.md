@@ -16,6 +16,8 @@ created our redux store with userSlice
 implemented sign out
 update profile
 fetch movies from TMDB
+Bug Fix: sign up user displayName and profile pic update
+Bug Fix: is the user is not logged in redirect (/browse) to login page and vice-versa
 
 
 

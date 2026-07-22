@@ -1,21 +1,41 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { auth } from '../utils/firebase'
-import { signOut } from 'firebase/auth'
-import { Navigate, useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { addUser, removeUser } from '../utils/userSlice'
+import { onAuthStateChanged } from 'firebase/auth'
 
 const Header = () => {
   const navigate = useNavigate()
   const user = useSelector((store) => store.user)
+  const dispatch = useDispatch()
 
   const handleSignOut = async () => {
     try {
-      await signOut(auth)
-      navigate('/')
     } catch (error) {
       navigate('/error')
     }
   }
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName, photoURL } = user
+        dispatch(
+          addUser({
+            uid,
+            email,
+            displayName,
+            photoURL,
+          })
+        )
+        navigate('/browse')
+      } else {
+        dispatch(removeUser())
+        navigate('/')
+      }
+    })
+  }, [])
 
   return (
     <div className='absolute p-6 w-full bg-gradient-to-b from-black z-10 flex justify-between'>
@@ -29,7 +49,11 @@ const Header = () => {
       {user && (
         <div>
           <img
-            src={user.photoURL ? user.photoURL : 'https://occ-0-2087-2164.1.nflxso.net/dnm/api/v6/SO2HoVCx33X8phZh2pZZmQ4QgNY/AAAABa3dRG2rbN8zB-VMREX8jHBNAp-LORv4rD1qdhSqoNmAbuAKWkaydWTPeYz97fxbFhc8gs3w9eDeMQtt8qnOpmKT4tWPK0M.png?r=1d4'}
+            src={
+              user.photoURL
+                ? user.photoURL
+                : 'https://occ-0-2087-2164.1.nflxso.net/dnm/api/v6/SO2HoVCx33X8phZh2pZZmQ4QgNY/AAAABa3dRG2rbN8zB-VMREX8jHBNAp-LORv4rD1qdhSqoNmAbuAKWkaydWTPeYz97fxbFhc8gs3w9eDeMQtt8qnOpmKT4tWPK0M.png?r=1d4'
+            }
             alt='userIcon'
             className='rounded w-10'
             onClick={handleSignOut}

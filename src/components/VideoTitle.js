@@ -3,8 +3,8 @@ import  { IMAGE_URL } from '../utils/constants'
 
 const VideoTitle = ({title, overview}) => {
   return (
-    <div className='px-[10%] py-[20%] absolute'>
-      <div className=''>
+    <div className='px-[10%] py-[15%] relative'>
+      <div>
         <h1 className='font-bold text-6xl text-red-800 my-6'>{title}</h1>
         <p className='w-3/5 text-xl text-white'>{overview}</p>
       </div>

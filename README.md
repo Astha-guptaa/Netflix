@@ -31,7 +31,12 @@ get data from tmdb now playing movies list api
  custom hooks for trailer video
  embedded the youtube video and make it autoplay and mute
  tailwind classes to make main container look awesome
- Built secondary project
+ Built secondary projectComponent
+ build Movie List
+ Build Movie card
+ Found TMDB IMAGE_CDN_URL
+ made the browser page amazing with tailwind css
+ usePopularMovies useTopRatedMovies CustomHooks
  
 
 

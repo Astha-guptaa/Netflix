@@ -18,6 +18,20 @@ update profile
 fetch movies from TMDB
 Bug Fix: sign up user displayName and profile pic update
 Bug Fix: is the user is not logged in redirect (/browse) to login page and vice-versa
+unsubscribed to the onAuthStateChanged callback
+Add hardcoded values to constant.js file
+Register tmdb api & create an app & get access token
+get data from tmdb now playing movies list api
+ Custom hook for now playing movies
+ reate movieSlice
+ update store with movies data
+ plannning for main container and secondary container
+ fecth data for trailer video
+ update store with trailer video data
+ custom hooks for trailer video
+ embedded the youtube video and make it autoplay and mute
+ tailwind classes to make main container look awesome
+
 
 
 
@@ -36,3 +50,16 @@ Bug Fix: is the user is not logged in redirect (/browse) to login page and vice-
   - Netflix GPT
     - Search Bar
     - Movie Suggestions
+
+
+
+
+
+# Browse Page
+
+  - Main Container
+  ``- Video Background
+    - Video Title
+  - Secondary Container
+    - Movies List * n
+     - CardList * n

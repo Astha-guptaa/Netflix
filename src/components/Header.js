@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { addUser, removeUser } from '../utils/userSlice'
 import { onAuthStateChanged } from 'firebase/auth'
 import { NETFLIX_LOGO, USER_ICON } from '../utils/constants'
+import { toggleGPTSearchView } from '../utils/GPTSlice'
 
 const Header = () => {
   const navigate = useNavigate()
@@ -42,13 +43,23 @@ const Header = () => {
     return () => unsubscribe()
   }, [])
 
+  const handleGPTSearchView = () => {
+    dispatch(toggleGPTSearchView())
+  }
+
   return (
     <div className='absolute p-8 w-full bg-gradient-to-b from-black z-10 flex justify-between'>
       <div>
         <img src={NETFLIX_LOGO} alt='logo' className='w-36' />
       </div>
       {user && (
-        <div>
+        <div className='flex'>
+          <button
+            className='px-4 py-2 mx-4 rounded bg-purple-900 text-white'
+            onClick={handleGPTSearchView}
+          >
+            GPT Search ✨
+          </button>
           <img
             src={user.photoURL ? user.photoURL : USER_ICON}
             alt='userIcon'

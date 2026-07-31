@@ -37,6 +37,10 @@ get data from tmdb now playing movies list api
  Found TMDB IMAGE_CDN_URL
  made the browser page amazing with tailwind css
  usePopularMovies useTopRatedMovies CustomHooks
+ GPT Search Page
+ GPT Search Bar
+ **Multi Language Feature in out APP
+
  
 
 

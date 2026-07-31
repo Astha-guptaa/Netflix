@@ -16,7 +16,6 @@ const useUpcomingMovies = () => {
       API_OPTIONS
     )
     const json = await data.json()
-    console.log("upcoming" , json.results)
     dispatch(addUpcomingMovies(json.results))
   }
 }
